@@ -1,4 +1,9 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import Activities from './components/Activities';
+import Leaderboard from './components/Leaderboard';
+import Teams from './components/Teams';
+import Users from './components/Users';
+import Workouts from './components/Workouts';
 
 function App() {
   return (
@@ -9,14 +14,22 @@ function App() {
           <p className="text-muted">Modern fitness tracking with React, Vite, Express, and MongoDB.</p>
         </header>
 
-        <nav className="mb-4">
-          <Link className="btn btn-primary me-2" to="/">Home</Link>
-          <Link className="btn btn-outline-primary" to="/about">About</Link>
+        <nav className="mb-4 d-flex flex-wrap gap-2">
+          <Link className="btn btn-primary" to="/">Home</Link>
+          <Link className="btn btn-outline-primary" to="/users">Users</Link>
+          <Link className="btn btn-outline-primary" to="/teams">Teams</Link>
+          <Link className="btn btn-outline-primary" to="/activities">Activities</Link>
+          <Link className="btn btn-outline-primary" to="/leaderboard">Leaderboard</Link>
+          <Link className="btn btn-outline-primary" to="/workouts">Workouts</Link>
         </nav>
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/teams" element={<Teams />} />
+          <Route path="/activities" element={<Activities />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/workouts" element={<Workouts />} />
         </Routes>
       </div>
     </BrowserRouter>
@@ -27,16 +40,10 @@ function Home() {
   return (
     <div>
       <h2>Welcome to OctoFit Tracker</h2>
-      <p>Build and track workouts, teams, and achievements from a modern multi-tier application.</p>
-    </div>
-  );
-}
-
-function About() {
-  return (
-    <div>
-      <h2>About</h2>
-      <p>This frontend is built with React 19, Vite, Bootstrap, and client-side routing.</p>
+      <p>Use the navigation above to explore the multi-tier fitness tracker.</p>
+      <p>
+        If you are running in Codespaces, set <code>VITE_CODESPACE_NAME</code> in <code>.env.local</code> to enable the Codespaces API URL.
+      </p>
     </div>
   );
 }
